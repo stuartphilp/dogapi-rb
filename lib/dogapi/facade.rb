@@ -101,6 +101,11 @@ module Dogapi
       end
     end
 
+    # Query the Metrics service for data
+    def query(query, start_time, end_time)
+      @metric_svc.query(query, start_time, end_time)
+    end
+
     #
     # EVENTS
 
