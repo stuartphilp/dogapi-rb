@@ -36,7 +36,7 @@ module Dogapi
             :end => @end_time,
             :query => @query
           }
-          request(Net::HTTP::Post, '/api/' + API_VERSION + '/query', params, nil, true)
+          request(Net::HTTP::Get, '/api/' + API_VERSION + '/query', params, nil, false)
         rescue Exception => e
           if @silent
             warn e
