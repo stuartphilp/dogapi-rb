@@ -27,13 +27,13 @@ module Dogapi
         end
       end
 
-      def query(query, start, end)
+      def query(query, start_time, end_time)
         begin
           params = {
             :api_key => @api_key,
             :application_key => @application_key,
-            :start => @start,
-            :end => @end,
+            :start => @start_time,
+            :end => @end_time,
             :query => @query
           }
           body = {
