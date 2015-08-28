@@ -27,6 +27,29 @@ module Dogapi
         end
       end
 
+      def query(query, start, end)
+        begin
+          params = {
+            :api_key => @api_key,
+            :application_key => @application_key,
+            :start => @start,
+            :end => @end,
+            :query => @query
+          }
+          body = {
+            :series => metrics
+          }
+          request(Net::HTTP::Post, '/api/' + API_VERSION + '/query', params, body, true)
+        rescue Exception => e
+          if @silent
+            warn e
+            return -1, {}
+          else
+            raise e
+          end
+        end
+      end
+
       def submit_to_api(metric, points, scope, options = {})
         payload = self.make_metric_payload(metric, points, scope, options)
         self.upload([payload])
