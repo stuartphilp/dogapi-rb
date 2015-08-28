@@ -32,8 +32,8 @@ module Dogapi
           params = {
             :api_key => @api_key,
             :application_key => @application_key,
-            :start => @start_time,
-            :end => @end_time,
+            :from => @start_time,
+            :to => @end_time,
             :query => @query
           }
           request(Net::HTTP::Get, '/api/' + API_VERSION + '/query', params, nil, false)
